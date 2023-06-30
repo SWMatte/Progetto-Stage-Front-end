@@ -1,0 +1,5 @@
+<app-clienti-table [listaTabellaClienti]="listaClienti"
+                    (deleteClient)="deleteClient($event)"
+                    (editClient)="editClient($event)"
+                    (onSort)="onSortColumn($event)"
+                    (onSearch)="onSearch($event)"></app-clienti-table>

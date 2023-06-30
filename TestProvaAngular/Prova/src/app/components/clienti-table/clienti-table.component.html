@@ -1,0 +1,22 @@
+<input type="text" (keyup)="search(listaTabellaClienti,$event.target)">
+<table>
+  <tr>
+    <th *ngFor="let col of columns" (click)="onSortColumn(col)">{{col.name}}</th>
+    <th>edit</th>
+    <th>delete</th>
+  </tr>
+  <tr *ngFor="let cliente of listaTabellaClienti">
+    <td>{{cliente.id}}</td>
+    <td>{{cliente.nome}}</td>
+    <td>{{cliente.cognome}}</td>
+    <td>{{cliente.eta}}</td>
+    <td><button (click)="onEditClient(cliente.id)">Edit</button></td>
+    <td><button (click)="onDeleteClient(cliente.id)">Delete</button></td>
+  </tr>
+</table>
+
+<ng-container *ngIf="showModificaCliente">
+  <app-modifica-cliente [listaClienti]="listaTabellaClienti"
+  (clienteUpdate)="clienteUpdate($event)"></app-modifica-cliente>
+</ng-container>
+
